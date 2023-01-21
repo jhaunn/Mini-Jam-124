@@ -6,9 +6,6 @@ public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] items;
 
-    //[SerializeField] private Vector3 minArea;
-    //[SerializeField] private Vector3 maxArea;
-
     [SerializeField] private float spawnRadius;
 
     [SerializeField] private float minSpawnInterval;
