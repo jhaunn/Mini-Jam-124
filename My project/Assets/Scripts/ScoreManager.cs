@@ -54,7 +54,6 @@ public class ScoreManager : MonoBehaviour
 
         if (initialTime <= 0f && !restarting)
         {
-            Debug.Log("Game Over");
             Destroy(GameObject.FindGameObjectWithTag("Player").gameObject);
             FindObjectOfType<ItemSpawner>().CanSpawn = false;
             

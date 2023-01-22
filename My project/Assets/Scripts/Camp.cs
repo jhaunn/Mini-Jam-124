@@ -11,8 +11,6 @@ public class Camp : MonoBehaviour
     {
         if (Physics.CheckSphere(transform.position, checkRadius, playerLayerMask))
         {
-            Debug.Log("Player in range");
-
             if (Input.GetKeyDown(KeyCode.E))
             {
                 FindObjectOfType<PlayerInventory>().UnpackInventory();
