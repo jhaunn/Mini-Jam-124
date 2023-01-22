@@ -13,8 +13,12 @@ public class ItemSpawner : MonoBehaviour
 
     private float currentSpawnInterval;
 
+    public bool CanSpawn { get; set; }
+
     private void Start()
     {
+        CanSpawn = true;
+
         currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
     }
 
@@ -22,7 +26,7 @@ public class ItemSpawner : MonoBehaviour
     {
         currentSpawnInterval -= Time.deltaTime;
 
-        if (currentSpawnInterval <= 0f)
+        if (currentSpawnInterval <= 0f && CanSpawn)
         {
             Instantiate(items[Random.Range(0, items.Length)], transform.position + (Random.insideUnitSphere * spawnRadius), Quaternion.identity);
 
