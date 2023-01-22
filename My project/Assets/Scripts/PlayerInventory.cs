@@ -14,6 +14,11 @@ public class PlayerInventory : MonoBehaviour
     private void Update()
     {
         inventoryText.text = $"{currentInventory}/{maxInventory}";
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            UnpackInventory();
+        }
     }
 
     public void AddInventory(int score)
@@ -25,5 +30,12 @@ public class PlayerInventory : MonoBehaviour
     public bool CheckInventory()
     {
         return currentInventory < maxInventory;
+    }
+
+    public void UnpackInventory()
+    {
+        currentInventory = 0;
+        ScoreManager.instance.Score += inventoryScore;
+        inventoryScore = 0;
     }
 }
