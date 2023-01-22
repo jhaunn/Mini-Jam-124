@@ -8,6 +8,9 @@ public class ScoreManager : MonoBehaviour
     public int Score { get; set; }
 
     [SerializeField] private TextMeshPro scoreText;
+    [SerializeField] private TextMeshPro timeText;
+
+    [SerializeField] private float initialTime;
 
     private void Start()
     {
@@ -16,6 +19,9 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = Score.ToString();   
+        initialTime -= Time.deltaTime;
+
+        scoreText.text = Score.ToString();
+        timeText.text = $"Time Left\n{initialTime.ToString("0.00")}s";
     }
 }
