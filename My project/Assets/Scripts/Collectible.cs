@@ -17,9 +17,13 @@ public class Collectible : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.GetComponent<PlayerInventory>())
         {
-            Destroy(gameObject);
+            if (collision.gameObject.GetComponent<PlayerInventory>().CheckInventory())
+            {
+                collision.gameObject.GetComponent<PlayerInventory>().AddInventory(collectible.GetScore());
+                Destroy(gameObject);
+            }
         }
     }
 }
