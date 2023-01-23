@@ -21,6 +21,11 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    public void UpgradeInventory()
+    {
+        maxInventory += 2;
+    }
+
     public void AddInventory(int score)
     {
         currentInventory++;

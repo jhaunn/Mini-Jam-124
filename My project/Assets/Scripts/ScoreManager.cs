@@ -18,6 +18,9 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI finalText;
 
+    [SerializeField] private GameObject[] upgrades;
+    private int currentUpgrade = 0;
+
     private bool restarting = false;
 
     private void Awake()
@@ -39,6 +42,11 @@ public class ScoreManager : MonoBehaviour
         Score = 0;
 
         finalText.gameObject.SetActive(false);
+
+        foreach (GameObject item in upgrades)
+        {
+            item.SetActive(false);
+        }
     }
 
     private void Update()
@@ -69,6 +77,33 @@ public class ScoreManager : MonoBehaviour
 
             Invoke("RestartGame", 5f);
         }
+
+        if (Score >= 25f && currentUpgrade == 0)
+        {
+            upgrades[0].SetActive(true);
+            currentUpgrade++;
+        }
+        if (Score >= 50f && currentUpgrade == 1)
+        {
+            upgrades[1].SetActive(true);
+            currentUpgrade++;
+        }
+        if (Score >= 75f && currentUpgrade == 2)
+        {
+            FindObjectOfType<PlayerInventory>().UpgradeInventory();
+            currentUpgrade++;
+        }
+        if (Score >= 150f && currentUpgrade == 3)
+        {
+            FindObjectOfType<PlayerInventory>().UpgradeInventory();
+            currentUpgrade++;
+        }
+        if (Score >= 250f && currentUpgrade == 4)
+        {
+            FindObjectOfType<PlayerInventory>().UpgradeInventory();
+            currentUpgrade++;
+        }
+
     }
 
     private void RestartGame()
