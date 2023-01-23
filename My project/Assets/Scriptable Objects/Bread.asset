@@ -15,4 +15,3 @@ MonoBehaviour:
   name: Bread
   minScore: 1
   maxScore: 2
-  model: {fileID: 919132149155446097, guid: 36d05a11e2632674e8d2ea9ba101862f, type: 3}

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20b34b61031b9dc4898ff87aa01d7b4e, type: 3}
-  m_Name: Apple
+  m_Name: Pumpkin
   m_EditorClassIdentifier: 
-  name: Apple
-  minScore: 1
-  maxScore: 2
+  name: Pumpkin
+  minScore: 3
+  maxScore: 4
